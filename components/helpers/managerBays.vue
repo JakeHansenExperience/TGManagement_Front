@@ -1,6 +1,15 @@
 <template>
     <div>
-    <bayhostView></bayhostView>
+        <v-container class="accent mt-2">
+            <v-row>
+                <v-spacer></v-spacer>
+                <v-col>
+                    Bays
+                </v-col>
+                <v-spacer></v-spacer>
+            </v-row>
+        </v-container>
+    
     </div>
     </template>
     
@@ -97,3 +106,21 @@
     
     </style>
     
+    
+    
+    
+    <!-- for axios stuff
+    
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+          .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(response => (this.info = response))
+      }
+    }) -->

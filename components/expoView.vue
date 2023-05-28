@@ -1,7 +1,22 @@
 <template>
     <div>
-    <bayhostView></bayhostView>
-    </div>
+        <v-container class="accent">
+            <v-row>
+<v-col>
+                <v-select
+  label="Select"
+  :items="bays"
+></v-select>
+</v-col>
+<v-col>
+    <v-btn class="mt-5"> Send Food </v-btn>  
+
+</v-col>
+            </v-row>
+          
+        </v-container>
+    
+</div>
     </template>
     
     
@@ -10,6 +25,7 @@
     export default {
       data() {
         return {
+            bays: ['101','102','103','104']
     
     }
     
@@ -97,3 +113,21 @@
     
     </style>
     
+    
+    
+    
+    <!-- for axios stuff
+    
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+          .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(response => (this.info = response))
+      }
+    }) -->

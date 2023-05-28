@@ -38,11 +38,17 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    '@nuxtjs/vuetify',
   ],
   axios: {
-    baseURL: 'http://localhost:8000/'
+    // baseURL: 'http://localhost:8000/'
+    proxy: true
     
+  },
+  proxy: {
+    '/api/': {target: 'http://localhost:8000/', pathRewrite: {'^/api/': ''} }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -58,7 +64,18 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          lightgrey: colors.grey.lighten4,
+          darkblue: colors.blue.darken3,
+          darkpink: colors.pink.darken3,
+          darkyellow: colors.yellow.darken1,
+          teal: colors.teal.accent1,
+          indigo: colors.indigo.darken3,
+          red: colors.red.darken3,
+          orange: colors.deepOrange.accent3,
+          blue: colors.blueGrey.darken2,
+          green: colors.green.darken3,
+
         }
       }
     }

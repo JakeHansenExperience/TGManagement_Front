@@ -1,6 +1,6 @@
 <template>
     <div>
-    <bayhostView></bayhostView>
+        userLogin 
     </div>
     </template>
     

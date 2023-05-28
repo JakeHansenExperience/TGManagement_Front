@@ -1,6 +1,51 @@
 <template>
     <div>
-    <bayhostView></bayhostView>
+        <v-container class="accent mt-2">
+            <v-row>
+                <v-spacer></v-spacer>
+                <v-col>
+                    Alerts
+                </v-col>
+                <v-spacer></v-spacer>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="red">
+                  Playmaker1 Is In The Weeds!!!
+                </v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="orange">
+                  Ball Jam @ Bay 102
+                </v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="green">
+                  Event 102 Starting in 10 minutes
+                </v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="green">
+                  Event 103 Food Arriving
+                </v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="indigo">
+                  Playmaker1 Is In The Weeds!!!
+                </v-chip>
+              </v-col>
+            </v-row>
+        </v-container> 
+
+    
     </div>
     </template>
     
@@ -97,3 +142,21 @@
     
     </style>
     
+    
+    
+    
+    <!-- for axios stuff
+    
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+          .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(response => (this.info = response))
+      }
+    }) -->

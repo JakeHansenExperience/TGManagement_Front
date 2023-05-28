@@ -78,8 +78,24 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Bay Host View',
-          to: '/bayHostView'
+          to: '/bayhostView'
         },
+        {
+          icon: 'mdi-apps',
+          title: 'Manager View',
+          to: '/managerView'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Starter View',
+          to: '/starterView'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Expo View',
+          to: '/expoView'
+        },
+      
         
       ],
       miniVariant: false,

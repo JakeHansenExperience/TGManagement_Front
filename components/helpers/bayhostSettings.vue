@@ -1,6 +1,49 @@
 <template>
     <div>
-    <bayhostView></bayhostView>
+        <v-form v-model="valid">
+    <v-container class="accent mt-2">
+      <v-row>
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="firstname"
+            :rules="nameRules"
+            :counter="10"
+            label="First name"
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="lastname"
+            :rules="nameRules"
+            :counter="10"
+            label="Last name"
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="12"
+          md="4"
+        >
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
+    
     </div>
     </template>
     
@@ -10,7 +53,34 @@
     export default {
       data() {
         return {
-    
+            valid: false,
+      firstname: '',
+      lastname: '',
+      nameRules: [
+        value => {
+          if (value) return true
+
+          return 'Name is requred.'
+        },
+        value => {
+          if (value?.length <= 10) return true
+
+          return 'Name must be less than 10 characters.'
+        },
+      ],
+      email: '',
+      emailRules: [
+        value => {
+          if (value) return true
+
+          return 'E-mail is requred.'
+        },
+        value => {
+          if (/.+@.+\..+/.test(value)) return true
+
+          return 'E-mail must be valid.'
+        },
+      ],
     }
     
     
@@ -97,3 +167,21 @@
     
     </style>
     
+    
+    
+    
+    <!-- for axios stuff
+    
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          info: null
+        }
+      },
+      mounted () {
+        axios
+          .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(response => (this.info = response))
+      }
+    }) -->
