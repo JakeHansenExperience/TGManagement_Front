@@ -15,6 +15,96 @@
             </v-row>
           
         </v-container>
+        <v-container class='accent mt-3'>
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-col>
+                              <v-icon class="mr-2">mdi-run</v-icon>
+
+            </v-col>
+            <v-col >
+              Currently Running
+            </v-col>
+            <v-col>
+                              <v-icon class="mr-2">mdi-run-fast</v-icon>
+
+            </v-col>
+             <v-spacer></v-spacer>
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 green'>
+              Runner 1: 1 min
+            </v-chip>
+  
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 green' >
+              Runner 2: 3 mins
+            </v-chip>
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 green'>
+              Runner 3: 7 mins
+            </v-chip>
+          </v-row>
+        </v-container>
+        <v-container class='accent mt-3'>
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-col>
+                              <v-icon class="mr-2">mdi-restart</v-icon>
+
+            </v-col>
+            <v-col >
+              Runners Queue
+            </v-col>
+            <v-col>
+                              <v-icon class="mr-2">mdi-restart</v-icon>
+
+            </v-col>
+             <v-spacer></v-spacer>
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 red'>
+              Runner 5: 10 Orders, 22 Stairs
+            </v-chip>
+  
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 red'>
+              Runner 6: 8 Orders, 14 Stairs
+            </v-chip>
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 red'>
+              Runner 7: 19 Orders, 16 Stairs
+            </v-chip>
+          </v-row>
+        </v-container>
+        <v-container class='accent mt-3'>
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-col>
+                              <v-icon class="mr-2">mdi-broom</v-icon>
+
+            </v-col>
+            <v-col >
+             Side Work
+            </v-col>
+            <v-col>
+                              <v-icon class="mr-2">mdi-broom</v-icon>
+
+            </v-col>
+             <v-spacer></v-spacer>
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 green'>
+              Runner 4: Sauces
+            </v-chip>
+  
+          </v-row>
+        
+        </v-container>
     
 </div>
     </template>

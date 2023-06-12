@@ -15,6 +15,67 @@
             </v-row>
           
         </v-container>
+        <v-container class='accent mt-3'>
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-col>
+                              <v-icon class="mr-2">mdi-numeric-3</v-icon>
+
+            </v-col>
+            <v-col >
+             Third floor
+            </v-col>
+            <v-col>
+                              <v-icon class="mr-2">mdi-numeric-3</v-icon>
+
+            </v-col>
+             <v-spacer></v-spacer>
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 teal'>
+              Guest Runner 1: Checking In 301
+            </v-chip>
+  
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 red'>
+              Guest Runner 2: Available
+            </v-chip>
+  
+          </v-row>
+         
+        </v-container>
+
+        <v-container class='accent mt-3'>
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-col>
+                              <v-icon class="mr-2">mdi-numeric-2</v-icon>
+
+            </v-col>
+            <v-col >
+             Second floor
+            </v-col>
+            <v-col>
+                              <v-icon class="mr-2">mdi-numeric-2</v-icon>
+
+            </v-col>
+             <v-spacer></v-spacer>
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 red'>
+              Guest Runner 3: Available
+            </v-chip>
+  
+          </v-row>
+          <v-row >
+            <v-chip class='mt-2 red'>
+              Guest Runner 4: Available
+            </v-chip>
+  
+          </v-row>
+         
+        </v-container>
     
 </div>
     </template>

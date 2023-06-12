@@ -41,6 +41,20 @@
             </v-row>
         </v-container>
     
+
+  <v-container>
+    <v-row>
+      <v-col>
+        <v-img src="/Untitled.png" height="100" width="100"> </v-img>
+      </v-col>
+      <v-col>
+             <v-btn class="mt-8"> Report A Karen </v-btn>
+      </v-col>
+      
+    </v-row>
+
+  </v-container>
+
     </div>
     </template>
     
