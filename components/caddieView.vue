@@ -1,6 +1,85 @@
 <template>
     <div>
-    yo
+      <v-container class="accent mt-2">
+            <v-row>
+                <v-spacer></v-spacer>
+                <v-col>
+                    Alerts
+                </v-col>
+                <v-spacer></v-spacer>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="pink">
+                  Bay 103 
+                </v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="pink">
+                   Bay 104
+                </v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="green">
+                  Event 102 Breaking Down Buffet
+                </v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-chip class="red">
+                  Cups Just hit Critical Level on Floor Three!
+                </v-chip>
+              </v-col>
+            </v-row>
+            
+           
+        </v-container> 
+
+        <v-container class='accent mt-2'>
+          <v-row>
+                <v-spacer></v-spacer>
+                <v-col>
+                    BusCart Status
+                </v-col>
+                <v-spacer></v-spacer>
+            </v-row>
+            <v-row>
+              <v-col>
+                 <v-slider
+      v-model="slider1"
+      color="red"
+      label=""
+    ></v-slider>
+              </v-col>
+            </v-row>
+        </v-container>
+
+        <v-container class="accent mt-2">
+          <v-row>
+                <v-spacer></v-spacer>
+                <v-col>
+                    Cup Status
+                </v-col>
+                <v-spacer></v-spacer>
+            </v-row>
+            <v-row>
+              <v-col>
+                 <v-slider
+      v-model="slider2"
+      color="green"
+      label=""
+    ></v-slider>
+              </v-col>
+            </v-row>
+        </v-container>
+       
+
+    
     </div>
     </template>
     
@@ -10,6 +89,8 @@
     export default {
       data() {
         return {
+          slider1: 70,
+          slider2: 20,
     
     }
     
@@ -46,6 +127,7 @@
     
     
       methods: {
+         
     // fetching Data
         // async grabBCData() {
         //   const response = await this.$axios.$get('/api/readAllBusCarts');

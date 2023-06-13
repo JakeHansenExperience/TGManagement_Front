@@ -20,6 +20,7 @@
       :icon="item.icon"
       :bay="item.bay"
       fill-dot
+     
     >
     <v-container class="indigo">
         <v-row>
@@ -42,14 +43,40 @@
         </v-container>
     
 
-  <v-container>
+  <v-container class='accent mt-2'>
     <v-row>
       <v-col>
         <v-img src="/Untitled.png" height="100" width="100"> </v-img>
       </v-col>
       <v-col>
-             <v-btn class="mt-8"> Report A Karen </v-btn>
+             <v-btn class="mt-8" @click="showKaren = '1'"> Report A Karen </v-btn>
       </v-col>
+      
+      <v-overlay v-if="showKaren == 1">
+        <v-container class='red'>
+          <v-row>
+            <v-col>
+                                  <v-text-field label="Title Of Incident"></v-text-field>
+
+            </v-col>
+          </v-row>
+        
+          <v-row>
+            <v-col>
+                                  <v-text-field label="Describe the Karen Incident"></v-text-field>
+
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <v-btn @click="showKaren = '0'"> Cancel </v-btn>
+              </v-col>
+              <v-col>
+                <v-btn @click="showKaren = '0'"> Submit </v-btn>
+                </v-col>
+            </v-row>
+        </v-container>
+      </v-overlay>
       
     </v-row>
 
@@ -64,6 +91,7 @@
     export default {
       data() {
         return {
+            showKaren: '0',
             items: [
         {
           color: 'indigo darken-3',

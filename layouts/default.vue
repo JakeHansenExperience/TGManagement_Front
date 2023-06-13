@@ -95,6 +95,16 @@ export default {
           title: 'Expo View',
           to: '/expoView'
         },
+        {
+          icon: 'mdi-apps',
+          title: 'Caddie View',
+          to: '/caddieView'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Karen View',
+          to: '/karenView'
+        },
       
         
       ],
