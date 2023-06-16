@@ -1,47 +1,40 @@
 <template>
 <div>
-<v-container class='accent'>
-    <v-row>
-        <v-col>
-                    <v-img src="/Untitled.png" height="60" width="60"> </v-img>
-
-        </v-col>
-        <v-col>
-            Karen Encounters
-        </v-col>
-        <v-col>
-                    <v-img src="/Untitled.png" height="60" width="60"> </v-img>
-
-        </v-col>
-        </v-row>
+    <v-container class="accent mt-3">
         <v-row>
             <v-col>
-                <v-img src="/notfriends.webp"> </v-img>
+                Bayhost Report: 7/17/23
             </v-col>
         </v-row>
         <v-row>
-            <v-col class=" mt-7">
-                    Sort By:
-                </v-col>
-                <v-col>
-                    <v-radio-group inline>
-                        <v-radio label="Day" value="1"></v-radio>
-                        <v-radio label="Month" value="2"></v-radio>
-                        <v-radio label="All-Time" value="3"></v-radio>
-
-                    </v-radio-group>
-                </v-col>
+            <v-col>
+                Experiences: 25
+            </v-col>
         </v-row>
-        
-</v-container>
-
-<v-container >
-    <v-row>
-        <v-col>
-    <HelpersKarenCard></HelpersKarenCard>
-    </v-col>
-    </v-row>
-</v-container>
+        <v-row>
+            <v-col>
+                Bay Greets: 23/25
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                First Order Info: 25/25
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                Close Outs / Bay Flips: 25/25
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                Overall Grade: Oh Wow You're Awesome
+            </v-col>
+            <v-col>
+                <v-img src="/ohwow.webp"></v-img>
+            </v-col>
+        </v-row>
+    </v-container>
 
 </div>
 </template>

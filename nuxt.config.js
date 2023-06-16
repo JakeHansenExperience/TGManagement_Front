@@ -41,7 +41,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
     '@nuxtjs/vuetify',
+    
   ],
+  
   axios: {
     // baseURL: 'http://localhost:8000/'
     proxy: true

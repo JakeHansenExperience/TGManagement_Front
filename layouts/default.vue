@@ -105,6 +105,11 @@ export default {
           title: 'Karen View',
           to: '/karenView'
         },
+        {
+          icon: 'mdi-apps',
+          title: 'Birthday View',
+          to: '/birthdayView'
+        },
       
         
       ],

@@ -12,17 +12,22 @@
             <div v-if="curTab == 'bays'">
             <HelpersBayhostBays></HelpersBayhostBays>
             </div>
+            <div v-if="curTab == 'report'">
+              <HelpersBayhostReport></HelpersBayhostReport>
+              </div>
             <div v-if="curTab == 'settings'">
             <HelpersBayhostSettings></HelpersBayhostSettings>
             </div>
 
-            <v-container class='accent mt-2'>
+            <v-container class='accent mt-2' v-if = 'curTab == "bays"'>
     <v-row>
       <v-col>
         <v-img src="/Untitled.png" height="100" width="100"> </v-img>
       </v-col>
       <v-col>
+        
              <v-btn class="mt-8" @click="showKaren = '1'"> Report A Karen </v-btn>
+        
       </v-col>
       
       <v-overlay v-if="showKaren == 1">
@@ -49,15 +54,21 @@
                 </v-col>
             </v-row>
         </v-container>
+       
       </v-overlay>
       
     </v-row>
 
   </v-container>
+   
         <v-bottom-navigation class="accent fixed-bottom mt-2">
   <v-btn value="bays" @click="changeTab('bays')">
     <v-icon>mdi-golf</v-icon>
     Bays
+  </v-btn>
+    <v-btn value="report" @click="changeTab('report')">
+    <v-icon>mdi-golf</v-icon>
+    Report
   </v-btn>
   <v-btn value="settings" @click="changeTab('settings')">
     <v-icon>mdi-golf</v-icon>

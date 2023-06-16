@@ -1,6 +1,54 @@
 <template>
     <div>
-        <v-container class="accent mt-2">
+      <v-container>
+        <v-row>
+          <v-col>
+            Table Touches
+          </v-col>
+        </v-row>
+      </v-container>
+     <v-container>
+     <v-expansion-panels class="pt-2">
+       <v-expansion-panel>
+        <v-expansion-panel-header class="darkblue" >
+            Bay 101 <v-divider vertical class="white ml-2 mr-2"></v-divider> 30 mins 
+        </v-expansion-panel-header>
+      
+        <v-expansion-panel-content>
+            hello
+        </v-expansion-panel-content>
+       </v-expansion-panel>
+        <v-expansion-panel>
+        <v-expansion-panel-header class="darkblue" >
+            Bay 101 <v-divider vertical class="white ml-2 mr-2"></v-divider> 30 mins 
+        </v-expansion-panel-header>
+      
+        <v-expansion-panel-content>
+            hello
+        </v-expansion-panel-content>
+       </v-expansion-panel>
+        <v-expansion-panel>
+        <v-expansion-panel-header class="darkblue" >
+            Bay 101 <v-divider vertical class="white ml-2 mr-2"></v-divider> 30 mins 
+        </v-expansion-panel-header>
+      
+        <v-expansion-panel-content>
+            hello
+        </v-expansion-panel-content>
+       </v-expansion-panel>
+        <v-expansion-panel>
+        <v-expansion-panel-header class="darkblue" >
+            Bay 101 <v-divider vertical class="white ml-2 mr-2"></v-divider> 30 mins 
+        </v-expansion-panel-header>
+      
+        <v-expansion-panel-content>
+            hello
+        </v-expansion-panel-content>
+       </v-expansion-panel>
+     </v-expansion-panels>
+     </v-container>
+      
+        <!-- <v-container class="accent mt-2">
             <v-row>
                 <v-spacer></v-spacer>
                 <v-col>
@@ -41,7 +89,7 @@
   </v-timeline>
             </v-row>
         </v-container>
-    
+     -->
 
   <v-container class='accent mt-2'>
     <v-row>

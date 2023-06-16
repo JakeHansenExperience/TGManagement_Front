@@ -1,48 +1,12 @@
 <template>
 <div>
-<v-container class='accent'>
+<v-container>
     <v-row>
         <v-col>
-                    <v-img src="/Untitled.png" height="60" width="60"> </v-img>
-
+            
         </v-col>
-        <v-col>
-            Karen Encounters
-        </v-col>
-        <v-col>
-                    <v-img src="/Untitled.png" height="60" width="60"> </v-img>
-
-        </v-col>
-        </v-row>
-        <v-row>
-            <v-col>
-                <v-img src="/notfriends.webp"> </v-img>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col class=" mt-7">
-                    Sort By:
-                </v-col>
-                <v-col>
-                    <v-radio-group inline>
-                        <v-radio label="Day" value="1"></v-radio>
-                        <v-radio label="Month" value="2"></v-radio>
-                        <v-radio label="All-Time" value="3"></v-radio>
-
-                    </v-radio-group>
-                </v-col>
-        </v-row>
-        
-</v-container>
-
-<v-container >
-    <v-row>
-        <v-col>
-    <HelpersKarenCard></HelpersKarenCard>
-    </v-col>
     </v-row>
 </v-container>
-
 </div>
 </template>
 
