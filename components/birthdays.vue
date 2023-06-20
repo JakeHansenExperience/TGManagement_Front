@@ -1,9 +1,147 @@
 <template>
 <div>
-<v-container>
+<v-container class="accent">
+    <v-row>
+        <v-spacer></v-spacer>
+        <v-col>
+           
+            Birthdays / Celebrations
+            
+        </v-col>
+        <v-spacer></v-spacer>
+    </v-row>
+  
+    <v-row >
+        <v-col>
+            First Floor
+            
+        </v-col>
+    </v-row>
     <v-row>
         <v-col>
+            <v-expansion-panels>
+               
+                <v-expansion-panel>
+                    <v-expansion-panel-header>
+                        8:45 PM 
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <v-container>
+                            <v-row>
+                                <v-col>
+                                    Bay 116: Evan's Bachelor Party
+                                  
+                                    </v-col>
+                            </v-row>
+                          
+                        </v-container>
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+            </v-expansion-panels>
+        </v-col>
+    </v-row>
+      <v-row >
+        <v-col>
+            Second Floor
             
+        </v-col>
+    </v-row>
+     <v-row>
+        <v-col>
+            <v-expansion-panels>
+                <v-expansion-panel>
+                    <v-expansion-panel-header>
+                        8:00 PM 
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <v-container>
+                            <v-row>
+                                <v-col>
+                                    Bay 202: Mike, Age  29
+                                    <v-icon> mdi-cake </v-icon>
+                                    </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col>
+                                    Bay 229: Mave, Age 32
+                                </v-col>
+                                <v-icon> mdi-cake </v-icon>
+                            </v-row>
+                        </v-container>
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+                <v-expansion-panel>
+                    <v-expansion-panel-header>
+                        8:45 PM 
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <v-container>
+                            <v-row>
+                                <v-col>
+                                    Bay 226: We Needed A Drink!!!
+                                  
+                                    </v-col>
+                            </v-row>
+                          
+                        </v-container>
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+            </v-expansion-panels>
+        </v-col>
+    </v-row>
+    <v-row >
+        <v-col>
+            Third Floor
+            
+        </v-col>
+    </v-row>
+     <v-row>
+        <v-col>
+            <v-expansion-panels>
+                <v-expansion-panel>
+                    <v-expansion-panel-header>
+                        8:00 PM 
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <v-container>
+                            <v-row>
+                                <v-col>
+                                    Bay 324: Mike, Age  29
+                                    <v-icon> mdi-cake </v-icon>
+                                    </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col>
+                                    Bay 329: Mave, Age 32
+                                </v-col>
+                                <v-icon> mdi-cake </v-icon>
+                            </v-row>
+                        </v-container>
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+                <v-expansion-panel>
+                    <v-expansion-panel-header>
+                        8:45 PM 
+                    </v-expansion-panel-header>
+                    <v-expansion-panel-content>
+                        <v-container>
+                            <v-row>
+                                <v-col>
+                                    Bay 326: The Boys Are Back In Town!
+                                  
+                                    </v-col>
+                            </v-row>
+                          
+                        </v-container>
+                    </v-expansion-panel-content>
+                </v-expansion-panel>
+            </v-expansion-panels>
+        </v-col>
+    </v-row>
+      <v-row>
+        <v-col>
+                    <v-img src="/party time.gif" > </v-img>
+
         </v-col>
     </v-row>
 </v-container>
