@@ -22,14 +22,36 @@
             <v-expansion-panels>
                
                 <v-expansion-panel>
-                    <v-expansion-panel-header>
+                     <!-- <v-expansion-panel-title icon="mdi-cake"> -->
+                    <v-expansion-panel-header expand-icon="mdi-cake">
+                       
                         8:45 PM 
+                      
                     </v-expansion-panel-header>
+                      <!-- </v-expansion-panel-title> -->
                     <v-expansion-panel-content>
-                        <v-container>
+                        <v-container class="indigo">
                             <v-row>
                                 <v-col>
-                                    Bay 116: Evan's Bachelor Party
+                                    Birthday: Bay 116
+                                  
+                                    </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col>
+                                    Name: Evan
+                                  
+                                    </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col>
+                                    Age: 16
+                                  
+                                    </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col>
+                                    Dessert: Double Chocolate
                                   
                                     </v-col>
                             </v-row>
@@ -71,15 +93,20 @@
                     </v-expansion-panel-content>
                 </v-expansion-panel>
                 <v-expansion-panel>
-                    <v-expansion-panel-header>
+                    <v-expansion-panel-header expand-icon="mdi-party-popper">
                         8:45 PM 
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
-                        <v-container>
+                        <v-container class="darkpink">
                             <v-row>
                                 <v-col>
-                                    Bay 226: We Needed A Drink!!!
+                                    Celebration Bay 226
                                   
+                                    </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col>
+                                    Title: "Boys Are Back in Town!!!"
                                     </v-col>
                             </v-row>
                           

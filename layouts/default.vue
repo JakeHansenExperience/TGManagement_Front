@@ -110,6 +110,11 @@ export default {
           title: 'Birthday View',
           to: '/birthdayView'
         },
+        {
+          icon: 'mdi-apps',
+          title: 'Maintenance View',
+          to: '/maintenanceView'
+        },
       
         
       ],

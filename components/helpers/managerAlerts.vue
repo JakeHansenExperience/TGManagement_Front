@@ -45,6 +45,126 @@
             </v-row>
         </v-container> 
 
+     <v-container>
+      <v-row>
+        <v-col>
+          <v-btn @click='overlay=1'>
+                        IT
+                    </v-btn>
+                    <v-overlay v-if='overlay==1'>
+                      <v-container class="red">
+                        <v-row>
+                          <v-col class='mt-6'>
+                            Did You Refresh Bay?
+                          </v-col>
+                          <v-col>
+                            <v-radio-group
+      v-model="inline"
+      inline
+    >
+      <v-radio
+        label="Yes"
+        value="yes"
+      ></v-radio>
+      <v-radio
+        label="No"
+        value="no"
+      ></v-radio>
+    </v-radio-group>
+                          </v-col>
+
+                          
+                        </v-row>
+                        <v-row>
+                          <v-col class='mt-6'>
+                            Are There Balls?
+                          </v-col>
+                          <v-col>
+                            <v-radio-group
+      v-model="inline"
+      inline
+    >
+      <v-radio
+        label="Yes"
+        value="yes"
+      ></v-radio>
+      <v-radio
+        label="No"
+        value="no"
+      ></v-radio>
+    </v-radio-group>
+                          </v-col>
+
+                          
+                        </v-row>
+                        <v-row>
+                          <v-col class='mt-6'>
+                            Are Balls Coming Out?
+                          </v-col>
+                          <v-col>
+                            <v-radio-group
+      v-model="inline"
+      inline
+    >
+      <v-radio
+        label="Yes"
+        value="yes"
+      ></v-radio>
+      <v-radio
+        label="No"
+        value="no"
+      ></v-radio>
+    </v-radio-group>
+                          </v-col>
+
+                          
+                        </v-row>
+                        <v-row>
+                          <v-col class='mt-8'>
+                            Which Screen isn't working?:
+                          </v-col>
+                          <v-col>
+                            <v-radio-group
+      v-model="inline"
+      inline
+    >
+      <v-radio
+        label="Field Screen"
+        value="fs"
+      ></v-radio>
+      <v-radio
+        label="Top Screen"
+        value="ts"
+      ></v-radio>
+      <v-radio
+        label="Middle Screen"
+        value="ms"
+      ></v-radio>
+      <v-radio
+        label="Bottom Screen"
+        value="bs"
+      ></v-radio>
+      <v-radio
+        label="Game Panel"
+        value="gp"
+      ></v-radio>
+    </v-radio-group>
+                          </v-col>
+
+                          
+                        </v-row>
+                        <v-row class='mb-4'>
+                          <v-spacer></v-spacer>
+                          <v-btn @click="overlay=0"> Send Ticket</v-btn>
+                          <v-spacer></v-spacer>
+                        </v-row>
+                      </v-container>
+
+                    </v-overlay>
+        </v-col>
+      </v-row>
+     </v-container>
+
     
     </div>
     </template>
@@ -55,6 +175,7 @@
     export default {
       data() {
         return {
+          overlay: 0,
     
     }
     

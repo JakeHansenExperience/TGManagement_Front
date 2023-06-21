@@ -10,7 +10,75 @@
 </v-col>
 <v-col>
     <v-btn @click="sitBay()" class="mt-5"> Sit Bay </v-btn>  
+    <v-overlay v-if="checkcelly == '1'">
+      <v-container class="red">
+        <v-row>
+          <v-col class="mt-6">
+            Birthday?
+          </v-col>
+          <v-col>
+            <v-radio-group
+      v-model="column"
+      column
+    >
+      <v-radio
+        label="Yes"
+        value="radio-1"
+      ></v-radio>
+      <v-radio
+        label="No"
+        value="radio-2"
+      ></v-radio>
+    </v-radio-group>
+            
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col class="mt-6">
+          Celebration?
+          </v-col>
+          <v-col>
+            <v-radio-group
+      v-model="column"
+      column
+    >
+      <v-radio
+        label="Yes"
+        value="radio-1"
+      ></v-radio>
+      <v-radio
+        label="No"
+        value="radio-2"
+      ></v-radio>
+    </v-radio-group>
+            
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-text-field label="Name"></v-text-field>
 
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-text-field label="Age"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-select label="Dessert" :items="['Donuts','Cookie Sundae','Double Chocolate','Ice Cream']"></v-select>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn @click="checkcelly = '0'">
+              Submit
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-overlay>
 </v-col>
             </v-row>
           
@@ -87,7 +155,8 @@
       data() {
         return {
             bays: ['101','102','103','104'],
-            experienceName: ''
+            experienceName: '',
+            checkcelly: '0',
 
     
     }
@@ -126,6 +195,7 @@
     
       methods: {
         async sitBay(){
+          this.checkcelly = '1'
             console.log("Do Some Stuff")
         }
     // fetching Data

@@ -1,0 +1,3 @@
+<template>
+    <maintenanceView></maintenanceView>
+</template>
