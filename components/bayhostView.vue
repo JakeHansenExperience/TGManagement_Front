@@ -51,6 +51,7 @@
               </v-col>
               <v-col>
                 <v-btn @click="showKaren = '0'"> Submit </v-btn>
+                <v-btn @click="createKaren()"> create </v-btn>
                 </v-col>
             </v-row>
         </v-container>
@@ -116,6 +117,15 @@
         
         changeTab(value){
             this.curTab = value
+        },
+
+        createKaren(){
+          const ip = this.$axios.$post('/api/karen', {
+                id: "10",
+                title: "from Vue",
+                description: "This karen story",
+                date: "Todays Date"
+          })
         }
     },
   

@@ -35,12 +35,20 @@
         
 </v-container>
 
+   <!-- title: String, 
+    description: String,
+    playmaker: String,
+    date: String,
+    onGods: Number, -->
+
 <v-container >
-    <v-row>
+    <v-row v-for="karen in karens">
         <v-col>
-    <HelpersKarenCard></HelpersKarenCard>
+    <HelpersKarenCard :title="karen.title" :description="karen.description" :playmaker="karen.playmaker" :date="karen.date" :onGods="karen.onGods" :karenID="karen.id"></HelpersKarenCard>
     </v-col>
+    
     </v-row>
+    
 </v-container>
 
 </div>
@@ -52,6 +60,7 @@
 export default {
   data() {
     return {
+        karens: {},
 
 }
 
@@ -89,24 +98,25 @@ export default {
 
   methods: {
 // fetching Data
-    // async grabBCData() {
-    //   const response = await this.$axios.$get('/api/readAllBusCarts');
-    //   this.bcData = response
-    //
-    //   const startingBay = '202'
-    //   this.changeBayParent(startingBay)
-    // }
+    async grabKarenData() {
+      const response = await this.$axios.$get('/api/karens');
+      this.karens = response
+      console.log("Karens")
+      console.log(this.karens)
+    },
+
+    
 
 },
 //Lifecycle Hooks: beforeCreate, created, beforeMount, mounted, beforeUPdate, updated, beforeDestroy, destroyed
-// mounted() {
-//   console.log("MountedBaby");
-//   this.grabBCData();
-//
-//   console.log("CalledThatData")
-//
-//
-// }
+mounted() {
+  console.log("MountedBaby");
+  this.grabKarenData();
+
+  console.log("CalledThatData")
+
+
+}
 
 };
 

@@ -3,28 +3,24 @@
     <v-container class='accent'>
         <v-row>
             <v-col>
-                Title: I should have just let them hit the macbites 
+                Title: {{title}}
             </v-col>
         </v-row>
         <v-row>
             <v-col>
-                Description: This mom was just like letting her kids hit the macbites off of the tee into the field.
-                I politely let her know that this is like not super chill and all in a polite and nice way. 
-                She responded that I have a face like a trapazoid. Classic Karen. 
+                Description: {{description}}
                 </v-col>
             </v-row>
             <v-row>
             <v-col>
-                Playmaker: Red Shirt 10, Houston-Katy
+                Playmaker: {{playmaker}}
                 </v-col>
                 <v-spacer></v-spacer>
                 <v-col>
-                    17 <v-icon> mdi-arrow-up-bold </v-icon> <v-icon> mdi-arrow-down-bold-outline </v-icon> 
+                    {{onGods}} <v-icon @click="addOnGod()"> mdi-arrow-up-bold </v-icon> <v-icon> mdi-arrow-down-bold-outline </v-icon> 
                 </v-col>
             </v-row>
     </v-container>
-
-
 </div>
 </template>
 
@@ -40,6 +36,12 @@ export default {
 
 },
   props: {
+    title: String, 
+    description: String,
+    playmaker: String,
+    date: String,
+    onGods: Number,
+    karenID: Number,
     //the parameters the comopnet accepst
     // message: String,
     // product: Object,
@@ -70,6 +72,20 @@ export default {
 
 
   methods: {
+    async addOnGod(){
+      // const params = {
+      //   karen_id: `1`
+      // };
+      // const ip = await this.$axios.$put('/api/updateKarenOnGods', {params} );
+      // this.ip = ip
+        this.$axios.$put('/api/updateKarenOnGods', {
+         karen_id: '1', 
+        }).then((response) => {
+          console.log(response.data);
+        }).catch((error) => {
+          console.log(error);
+        })
+    }
 // fetching Data
     // async grabBCData() {
     //   const response = await this.$axios.$get('/api/readAllBusCarts');
