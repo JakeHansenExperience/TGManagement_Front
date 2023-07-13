@@ -668,7 +668,7 @@
           for (var runner in this.runners){
             if(this.runners[runner].name == this.chillinClickName){
               this.runners[runner].status = "sidework"
-              this.queueIndex = runner
+              queueIndex = this.runners[runner].chillinQueue
             }
           }
           for (var runner in this.runners){
