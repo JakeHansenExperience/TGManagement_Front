@@ -72,7 +72,65 @@ export default {
 
 <style scoped>
 
-
+ /* <v-col class="indigo">
+            <v-row>
+              <v-col>
+                <v-icon @click="clickedNum(1)"> mdi-numeric-1-box-outline </v-icon>
+              </v-col>
+              <v-col>
+                <v-icon @click="clickedNum(2)"> mdi-numeric-2-box-outline </v-icon>
+              </v-col>
+              <v-col>
+                <v-icon  @click="clickedNum(3)"> mdi-numeric-3-box-outline </v-icon>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-icon @click="clickedNum(4)"> mdi-numeric-4-box-outline </v-icon>
+              </v-col>
+              <v-col>
+                <v-icon @click="clickedNum(5)"> mdi-numeric-5-box-outline </v-icon>
+              </v-col>
+              <v-col>
+                <v-icon @click="clickedNum(6)"> mdi-numeric-6-box-outline </v-icon>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-icon @click="clickedNum(7)"> mdi-numeric-7-box-outline </v-icon>
+              </v-col>
+              <v-col>
+                <v-icon @click="clickedNum(8)"> mdi-numeric-8-box-outline </v-icon>
+              </v-col>
+              <v-col>
+                <v-icon @click="clickedNum(9)"> mdi-numeric-9-box-outline </v-icon>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                
+              </v-col>
+              <v-col>
+                <v-icon @click="clickedNum(0)"> mdi-numeric-0-box-outline </v-icon>
+              </v-col>
+              <v-col>
+                <v-icon @click="clickedNum('a')"> mdi-backspace-outline</v-icon>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-text-field v-model="bayNum"  > </v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-btn class="mt-6" @click="runnerUp()">
+                  Runner Up!
+                </v-btn>
+              </v-col>
+            </v-row>
+         
+          </v-col> */
 /*
 vuetify styling
 

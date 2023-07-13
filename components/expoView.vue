@@ -2,11 +2,57 @@
   <div>
     
 
-    <v-container class="accent">
+    <v-container  >
       
       <v-row>
-        <v-col class="indigo">
+       <v-col class="indigo">
+        <v-row>
+          <v-col>
+            Expo Controls
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn @click="runnerUp3" class="mt-5 ml-4">
+              Runner Up 3
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn @click="runnerUp2" class="mt-5 ml-4">
+              Runner Up 2
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn @click="runnerUp1" class="mt-5 ml-4 ">
+              Runner Up 1
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
             <v-row>
+              <v-col>
+                Next Runner:
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                {{nextRunnerComputed}}
+              </v-col>
+            </v-row>
+            
+              
+            
+           
+          </v-col>
+        </v-row>
+        <v-row >
+          <v-col class="mt-12">
+            <v-row >
               <v-col>
                 <v-icon @click="clickedNum(1)"> mdi-numeric-1-box-outline </v-icon>
               </v-col>
@@ -63,7 +109,9 @@
               </v-col>
             </v-row>
          
-          </v-col>
+          </v-col> 
+        </v-row>
+       </v-col>
         <v-overlay v-if="Keyboard">
                   <v-container class="indigo">
                     <v-row>
@@ -180,20 +228,14 @@
                 </v-overlay>
                 <v-overlay v-if="chillinClickShow">
                   <v-container class="indigo">
-                    <v-row>
+                    <!-- <v-row>
                       <v-col>
                         <v-btn @click="chillinPriority">
                           Priority
                         </v-btn>
                       </v-col>
-                    </v-row>
-                     <v-row>
-                      <v-col>
-                        <v-btn @click="chillinBreak">
-                          Break
-                        </v-btn>
-                      </v-col>
-                    </v-row>
+                    </v-row> -->
+            
                      <v-row>
                       <v-col>
                         <v-btn @click="chillinSidework">
@@ -252,7 +294,7 @@
                     <v-row>
                       <v-col>
                         <v-btn @click="RunnerCancel">
-                          Runner Cancel
+                          Cancel
                         </v-btn>
                       </v-col>
                     </v-row>
@@ -300,14 +342,14 @@
             <v-col>
               <div v-for="runner in runners">
               <v-chip @click="clickedRunner(runner.name)" v-if ="runner.status == 'running'"> 
-                {{runner.bayName}}
+                {{runner.name}}
               </v-chip>
               </div>
             </v-col>
           </v-row>
         </v-col>
 
-        <v-col>
+        <v-col class="accent">
         
           <v-row>
             <v-col> 
@@ -372,6 +414,8 @@
             finalAvg: 0,
             finalName: '',
             showFinalStats: false,
+            availableRunners: false,
+            nextRunner: ""
     }
     
     
@@ -397,6 +441,25 @@
           // }
       },
       computed: {
+        nextRunnerComputed: function () {
+
+          var count = 0
+          for (var runner in this.runners){
+            if (this.runners[runner].status == "chillin"){
+              count += 1
+            }
+          }
+          if (count == 0){
+            return "No Available Runners"
+          }
+          else {
+            for (var runner in this.runners){
+              if (this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1){
+                return this.runners[runner].name
+              }
+            }
+          }
+        }
         // fullName: function () {
         //   return this.fistName + ' ' + this.lastName
       },
@@ -424,12 +487,7 @@
                 var timeDiff = Date.now() - this.runners[runner].runStart
                 this.runners[runner].totalTime += timeDiff
                 this.runners[runner].numTickets += 1
-                if(this.runners[runner].bayName.charAt(this.runners[runner].bayName.length-3) == '2'){
-                  this.runners[runner].numFloors += 1
-                }
-                if(this.runners[runner].bayName.charAt(this.runners[runner].bayName.length-3) == '3'){
-                  this.runners[runner].numFloors += 2
-                }
+                
               }
 
         }
@@ -440,32 +498,72 @@
           this.showRunnerOverlay = false
         },
 
-        runnerUp(){
-          console.log("HI")
-          var nextRunner = 0
+        // runnerUp(){
+        //   console.log("HI")
+        //   var nextRunner = 0
+        //   for (var runner in this.runners){
+        //       console.log(this.runners[runner].status)
+        //       if(this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1 ){
+        //         console.log("here")
+        //         nextRunner = runner
+        //         this.runners[runner].status = 'running'
+        //         this.runners[runner].runStart = Date.now()
+        //         this.runners[runner].bayName = this.runners[runner].name + " " + this.bayNum
+        //         console.log("HIHIHIHIHIHI")
+        //       }
+
+        // }
+        //  for (var runner in this.runners){
+        //       if(this.runners[runner].status == "chillin"){
+        //         this.runners[runner].chillinQueue -= 1
+        //       }
+        // }
+        // this.bayNum = ''
+        // },
+        runnerUp3(){
+          console.log("three")
           for (var runner in this.runners){
-              console.log(this.runners[runner].status)
-              if(this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1 ){
-                console.log("here")
-                nextRunner = runner
-                this.runners[runner].status = 'running'
-                this.runners[runner].runStart = Date.now()
-                this.runners[runner].bayName = this.runners[runner].name + " " + this.bayNum
-                console.log("HIHIHIHIHIHI")
-              }
-
-        }
-         for (var runner in this.runners){
-              if(this.runners[runner].status == "chillin"){
-                this.runners[runner].chillinQueue -= 1
-              }
-
-        }
-        this.bayNum = ''
-
-
-
-
+            if(this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1){
+              this.runners[runner].status = "running"
+              this.runners[runner].runStart = Date.now()
+              this.runners[runner].numFloors += 2
+            }
+          }
+          for (var runner in this.runners){
+            if(this.runners[runner].status == "chillin"){
+              this.runners[runner].chillinQueue -= 1
+            }
+          }
+        },
+        runnerUp2(){
+          console.log("Runner up2")
+          for (var runner in this.runners){
+            if(this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1){
+              this.runners[runner].status = "running"
+              this.runners[runner].runStart = Date.now()
+              this.runners[runner].numFloors += 1
+            }
+          }
+          for (var runner in this.runners){
+            if(this.runners[runner].status == "chillin"){
+              this.runners[runner].chillinQueue -= 1
+            }
+          }
+        },
+        runnerUp1(){
+          console.log("RunnerUpOne")
+          for (var runner in this.runners){
+            if(this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1){
+              this.runners[runner].status = "running"
+              this.runners[runner].runStart = Date.now()
+              
+            }
+          }
+          for (var runner in this.runners){
+            if(this.runners[runner].status == "chillin"){
+              this.runners[runner].chillinQueue -= 1
+            }
+          }
         },
         clickedRunner(value){
           this.showRunnerOverlay = true
