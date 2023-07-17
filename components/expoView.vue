@@ -7,50 +7,96 @@
       <v-row>
        <v-col class="indigo">
         <v-row>
-          <v-col>
+          <v-col class="text-h6 ml-4 mb-n4">
             Expo Controls
           </v-col>
         </v-row>
         <v-row>
+            <v-col>
+              <v-divider
+              thickness="20"
+              color="black"
+              class="border-opacity-100"
+              >
+
+              </v-divider>
+            </v-col>
+          </v-row>
+        <v-row>
           <v-col>
-            <v-btn @click="runnerUp3" class="mt-5 ml-4">
+            <v-btn @click="runnerUp3" class="mt-3 ml-4 darkIndigo">
               Runner Up 3
             </v-btn>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-btn @click="runnerUp2" class="mt-5 ml-4">
+            <v-btn @click="runnerUp2" class="mt-5 ml-4 darkIndigo">
               Runner Up 2
             </v-btn>
           </v-col>
         </v-row>
-        <v-row>
+        <v-row class="mb-n6">
           <v-col>
-            <v-btn @click="runnerUp1" class="mt-5 ml-4 ">
+            <v-btn @click="runnerUp1" class="mt-5 ml-4 darkIndigo ">
               Runner Up 1
             </v-btn>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-row>
-              <v-col>
-                Next Runner:
+            <v-divider
+              thickness="20"
+              color="black"
+              class="border-opacity-100 mt-3"
+              >
+
+              </v-divider>
+          </v-col>
+        </v-row>
+        
+        <v-row class="mt-1">
+          <v-col>
+            <v-row class="mb-n6">
+              
+                <v-icon class="ml-4">mdi-run</v-icon>
+              
+              
+              <v-col class="ml-4 mr-n4 text-subtitle-2">
+                Next Up
               </v-col>
+
+                <v-icon class="mr-6" >mdi-run-fast</v-icon>
+             
             </v-row>
-            <v-row>
-              <v-col>
+            <v-row class="mb-n8 ">
+            <v-spacer></v-spacer>
+              <v-col >
+                <v-chip class="darkIndigo" >
                 {{nextRunnerComputed}}
+              </v-chip>
               </v-col>
+             <v-spacer></v-spacer>
+         
             </v-row>
+            <v-row>
+            <v-col>
+              <v-divider
+              thickness="20"
+              color="black"
+              class="border-opacity-100"
+              >
+
+              </v-divider>
+            </v-col>
+          </v-row>
             
               
             
            
           </v-col>
         </v-row>
-        <v-row >
+        <!-- <v-row >
           <v-col class="mt-12">
             <v-row >
               <v-col>
@@ -110,7 +156,7 @@
             </v-row>
          
           </v-col> 
-        </v-row>
+        </v-row> -->
        </v-col>
         <v-overlay v-if="Keyboard">
                   <v-container class="indigo">
@@ -228,13 +274,13 @@
                 </v-overlay>
                 <v-overlay v-if="chillinClickShow">
                   <v-container class="indigo">
-                    <!-- <v-row>
+                    <v-row>
                       <v-col>
-                        <v-btn @click="chillinPriority">
+                        <v-btn @click="makePriority">
                           Priority
                         </v-btn>
                       </v-col>
-                    </v-row> -->
+                    </v-row>
             
                      <v-row>
                       <v-col>
@@ -332,16 +378,27 @@
                   </v-container>
                 </v-overlay>
 
-        <v-col class="green">
+        <v-col class="green ml-2">
+          <v-row>
+            <v-col class="text-h6 ml-11 mb-n4">
+          Runnin'
+            </v-col>
+          </v-row>
           <v-row>
             <v-col>
-          Running
+              <v-divider
+              thickness="20"
+              color="black"
+              class="border-opacity-100"
+              >
+
+              </v-divider>
             </v-col>
           </v-row>
           <v-row>
             <v-col>
               <div v-for="runner in runners">
-              <v-chip @click="clickedRunner(runner.name)" v-if ="runner.status == 'running'"> 
+              <v-chip class="darkerGreen mt-1 " @click="clickedRunner(runner.name)" v-if ="runner.status == 'running'"> 
                 {{runner.name}}
               </v-chip>
               </div>
@@ -349,37 +406,62 @@
           </v-row>
         </v-col>
 
-        <v-col class="accent">
+        <v-col class="accent ml-2">
         
-          <v-row>
-            <v-col> 
-          Chillin 
+          <v-row class="mb-n7">
+            <v-col class="text-h6 ml-8 "> 
+          Chillin' 
           </v-col>
           
           <v-col>
-            <v-icon @click="showKeyboard"> mdi-run</v-icon>
+            <v-badge @click="showKeyboard" icon="mdi-plus" color="lighterGrey" class="mt-2">
+            <v-icon @click="showKeyboard" class="mt-n1"> mdi-run</v-icon>
+            </v-badge>
+
           </v-col>
           </v-row>
           <v-row>
             <v-col>
+              <v-divider
+              thickness="20"
+              color="black"
+              class="border-opacity-100"
+              >
+
+              </v-divider>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
               <div v-for="runner in runners">
-              <v-chip @click="clickedChillinRunner(runner.name)" v-if ="runner.status == 'chillin'"> 
+              <v-chip  class="darkerGrey mt-1 " @click="clickedChillinRunner(runner.name)" v-if ="runner.status == 'chillin'"> 
                 {{runner.name}} <v-icon v-if="runner.break"> mdi-power-sleep</v-icon> 
               </v-chip>
               </div>
             </v-col>
           </v-row>
         </v-col>
-        <v-col class="red">
+        <v-col class="red ml-2">
           <v-row>
-            <v-col>
+            <v-col class="text-h6 ml-7 mb-n4">
           SideWorkin'
             </v-col>
           </v-row>
           <v-row>
             <v-col>
+              <v-divider
+              thickness="20"
+              color="black"
+              class="border-opacity-100"
+              >
+
+              </v-divider>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
               <div v-for="runner in runners">
-              <v-chip @click="sideworkShow(runner.name)" v-if ="runner.status == 'sidework'"> 
+              <v-chip class="darkerRed mt-1" @click="sideworkShow(runner.name)" v-if ="runner.status == 'sidework'"> 
                 {{runner.name}}
               </v-chip>
               </div>
@@ -470,6 +552,24 @@
     
     
       methods: {
+
+        makePriority(){
+
+          for(var runner in this.runners){
+            if(this.runners[runner].name == this.chillinClickName){
+              var curSpot = this.runners[runner].chillinQueue
+              for (var guy in this.runners){
+                if(this.runners[guy].status == "chillin" && this.runners[guy].chillinQueue < curSpot){
+                  this.runners[guy].chillinQueue += 1
+                }
+              }
+              this.runners[runner].chillinQueue = 1
+            }
+          }
+          this.chillinClickShow = false
+
+        },
+
         RunnerBack(){
           
           

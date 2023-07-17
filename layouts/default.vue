@@ -85,26 +85,26 @@ export default {
           title: 'Manager View',
           to: '/managerView'
         },
-        {
-          icon: 'mdi-apps',
-          title: 'Starter View',
-          to: '/starterView'
-        },
+        // {
+        //   icon: 'mdi-apps',
+        //   title: 'Starter View',
+        //   to: '/starterView'
+        // },
         {
           icon: 'mdi-apps',
           title: 'Expo View',
           to: '/expoView'
         },
-        {
-          icon: 'mdi-apps',
-          title: 'Caddie View',
-          to: '/caddieView'
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'Karen View',
-          to: '/karenView'
-        },
+        // {
+        //   icon: 'mdi-apps',
+        //   title: 'Caddie View',
+        //   to: '/caddieView'
+        // },
+        // {
+        //   icon: 'mdi-apps',
+        //   title: 'Karen View',
+        //   to: '/karenView'
+        // },
         {
           icon: 'mdi-apps',
           title: 'Birthday View',

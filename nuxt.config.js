@@ -78,6 +78,11 @@ export default {
           orange: colors.deepOrange.accent3,
           blue: colors.blueGrey.darken2,
           green: colors.green.darken3,
+          darkIndigo: colors.indigo.darken4,
+          darkerGrey: colors.grey.darken4,
+          darkerRed: colors.red.darken4,
+          darkerGreen: colors.green.darken4,
+          lighterGrey: colors.grey.darken2,
 
         }
       }
