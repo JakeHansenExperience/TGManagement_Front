@@ -1,9 +1,7 @@
 <template>
   <div>
-    
-
-    <v-container  >
-      
+  
+    <v-container  >   
       <v-row>
        <v-col class="indigo">
         <v-row>
@@ -90,73 +88,10 @@
               </v-divider>
             </v-col>
           </v-row>
-            
-              
-            
-           
+               
           </v-col>
         </v-row>
-        <!-- <v-row >
-          <v-col class="mt-12">
-            <v-row >
-              <v-col>
-                <v-icon @click="clickedNum(1)"> mdi-numeric-1-box-outline </v-icon>
-              </v-col>
-              <v-col>
-                <v-icon @click="clickedNum(2)"> mdi-numeric-2-box-outline </v-icon>
-              </v-col>
-              <v-col>
-                <v-icon  @click="clickedNum(3)"> mdi-numeric-3-box-outline </v-icon>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-icon @click="clickedNum(4)"> mdi-numeric-4-box-outline </v-icon>
-              </v-col>
-              <v-col>
-                <v-icon @click="clickedNum(5)"> mdi-numeric-5-box-outline </v-icon>
-              </v-col>
-              <v-col>
-                <v-icon @click="clickedNum(6)"> mdi-numeric-6-box-outline </v-icon>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-icon @click="clickedNum(7)"> mdi-numeric-7-box-outline </v-icon>
-              </v-col>
-              <v-col>
-                <v-icon @click="clickedNum(8)"> mdi-numeric-8-box-outline </v-icon>
-              </v-col>
-              <v-col>
-                <v-icon @click="clickedNum(9)"> mdi-numeric-9-box-outline </v-icon>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                
-              </v-col>
-              <v-col>
-                <v-icon @click="clickedNum(0)"> mdi-numeric-0-box-outline </v-icon>
-              </v-col>
-              <v-col>
-                <v-icon @click="clickedNum('a')"> mdi-backspace-outline</v-icon>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-text-field v-model="bayNum"  > </v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-btn class="mt-6" @click="runnerUp()">
-                  Runner Up!
-                </v-btn>
-              </v-col>
-            </v-row>
-         
-          </v-col> 
-        </v-row> -->
+  
        </v-col>
         <v-overlay v-if="Keyboard">
                   <v-container class="indigo">
@@ -458,6 +393,7 @@
               </v-divider>
             </v-col>
           </v-row>
+         
           <v-row>
             <v-col>
               <div v-for="runner in runners">
@@ -481,6 +417,9 @@
     export default {
       data() {
         return {
+            
+            messageRxd: null,
+            connection: null,
             bayNum: '',
             runners: [],
             Keyboard: false,
@@ -503,24 +442,8 @@
     
     },
       props: {
-        //the parameters the comopnet accepst
-        // message: String,
-        // product: Object,
-        // email: {
-          // type: String
-          // required: true,
-          // default: 'none'
-          // validator: function (value) {
-          //   return true if valid
-    //       String
-    // Number
-    // Boolean
-    // Array
-    // Object
-    // Date
-    // Function
-    // Symbol
-          // }
+        
+
       },
       computed: {
         nextRunnerComputed: function () {
@@ -552,7 +475,11 @@
     
     
       methods: {
-
+        // async sendMessage(){
+        //   console.log("Hello")
+        //   console.log(this.connection)
+        //   this.connection.send("I am the mesage")
+        // },
         makePriority(){
 
           for(var runner in this.runners){
@@ -563,6 +490,17 @@
                   this.runners[guy].chillinQueue += 1
                 }
               }
+              try {
+                const ip = this.$axios.$put('/api/updatePriority', {
+                name: this.runners[runner].name,
+                curSpot: curSpot,
+                
+                
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
               this.runners[runner].chillinQueue = 1
             }
           }
@@ -587,6 +525,18 @@
                 var timeDiff = Date.now() - this.runners[runner].runStart
                 this.runners[runner].totalTime += timeDiff
                 this.runners[runner].numTickets += 1
+                try {
+                const ip = this.$axios.$put('/api/updateRunnerBack', {
+                name: this.runners[runner].name,
+                shift: this.runners[runner].shift,
+                chillinQueue: this.runners[runner].chillinQueue,
+                totalTime: this.runners[runner].totalTime,
+                numTickets: this.runners[runner].numTickets
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
                 
               }
 
@@ -598,28 +548,6 @@
           this.showRunnerOverlay = false
         },
 
-        // runnerUp(){
-        //   console.log("HI")
-        //   var nextRunner = 0
-        //   for (var runner in this.runners){
-        //       console.log(this.runners[runner].status)
-        //       if(this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1 ){
-        //         console.log("here")
-        //         nextRunner = runner
-        //         this.runners[runner].status = 'running'
-        //         this.runners[runner].runStart = Date.now()
-        //         this.runners[runner].bayName = this.runners[runner].name + " " + this.bayNum
-        //         console.log("HIHIHIHIHIHI")
-        //       }
-
-        // }
-        //  for (var runner in this.runners){
-        //       if(this.runners[runner].status == "chillin"){
-        //         this.runners[runner].chillinQueue -= 1
-        //       }
-        // }
-        // this.bayNum = ''
-        // },
         runnerUp3(){
           console.log("three")
           for (var runner in this.runners){
@@ -627,6 +555,18 @@
               this.runners[runner].status = "running"
               this.runners[runner].runStart = Date.now()
               this.runners[runner].numFloors += 2
+              try {
+                const ip = this.$axios.$put('/api/updateRunnerUp', {
+                name: this.runners[runner].name,
+                shift: this.runners[runner].shift,
+                floors: 2,
+                runStart: this.runners[runner].runStart
+                
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
             }
           }
           for (var runner in this.runners){
@@ -634,7 +574,7 @@
               this.runners[runner].chillinQueue -= 1
             }
           }
-        },
+        },        
         runnerUp2(){
           console.log("Runner up2")
           for (var runner in this.runners){
@@ -642,6 +582,18 @@
               this.runners[runner].status = "running"
               this.runners[runner].runStart = Date.now()
               this.runners[runner].numFloors += 1
+              try {
+                const ip = this.$axios.$put('/api/updateRunnerUp', {
+                name: this.runners[runner].name,
+                shift: this.runners[runner].shift,
+                floors: 1,
+                runStart: this.runners[runner].runStart
+                
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
             }
           }
           for (var runner in this.runners){
@@ -656,7 +608,18 @@
             if(this.runners[runner].status == "chillin" && this.runners[runner].chillinQueue == 1){
               this.runners[runner].status = "running"
               this.runners[runner].runStart = Date.now()
-              
+              try {
+                const ip = this.$axios.$put('/api/updateRunnerUp', {
+                name: this.runners[runner].name,
+                shift: this.runners[runner].shift,
+                floors: 0,
+                runStart: this.runners[runner].runStart
+                
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
             }
           }
           for (var runner in this.runners){
@@ -670,7 +633,12 @@
           this.selectedRunner = value
           for (var runner in this.runners){
               if(this.runners[runner].name == value){
-                this.selectedRunnerTime = (Date.now() - this.runners[runner].runStart)/1000
+                var totalseconds = (Date.now() - this.runners[runner].runStart)/1000
+                console.log(totalseconds)
+                var minutes = Math.floor(totalseconds / 60)
+                var seconds =  Math.floor(totalseconds % 60)
+                console.log(seconds)
+                this.selectedRunnerTime = String(minutes) + " mins " + String(seconds) + " seconds:" 
               }
           }
         },
@@ -689,6 +657,16 @@
               if(this.runners[runner].name == this.SideworkName){
                 this.runners[runner].chillinQueue = numInQueue
                 this.runners[runner].status = "chillin"
+                try {
+                const ip = this.$axios.$put('/api/updateBackRunninFromExpo', {
+                name: this.SideworkName,
+                shift: this.runners[runner].shift,
+                
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
               }
 
         }
@@ -701,8 +679,6 @@
           this.SideworkName = name
           this.SideworkShow = true
         },
-
-
 
         chillinCancel(){
           this.chillinClickShow = false
@@ -769,6 +745,16 @@
             if(this.runners[runner].name == this.chillinClickName){
               this.runners[runner].status = "sidework"
               queueIndex = this.runners[runner].chillinQueue
+              try {
+                const ip = this.$axios.$put('/api/updateSideworkFromExpo', {
+                name: this.chillinClickName,
+                shift: this.runners[runner].shift,
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
+
             }
           }
           for (var runner in this.runners){
@@ -776,11 +762,13 @@
               this.runners[runner].chillinQueue -= 1
             }
           }
+          
           this.chillinClickShow = false
         },
         chillinEndshift(){
           var currentQueue = 0
           var currentIndex = 0
+          console.log("I am here right now")
           for (var runner in this.runners){
             if(this.runners[runner].name == this.chillinClickName){
               currentQueue = this.runners[runner].chillinQueue
@@ -795,10 +783,28 @@
           this.finalTickets = this.runners[currentIndex].numTickets
           this.finalStairs = this.runners[currentIndex].numFloors
           this.finalAvg = (this.runners[currentIndex].totalTime / 1000)/this.runners[currentIndex].numTickets
+          if (isNaN(this.finalAvg)) {
+            this.finalAvg = 0
+  }
           this.finalName = this.runners[currentIndex].name
+          try {
+            console.log("I am now here right now")
+                const ip = this.$axios.$put('/api/updateRunnerDone', {
+                name: this.runners[runner].name,
+                shift: this.runners[runner].shift,
+                finalTickets: this.finalTickets,
+                finalStairs: this.finalStairs,
+                finalAvg: this.finalAvg,
+                currentQueue: currentQueue
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
           this.runners.splice(currentIndex,1);
           this.chillinClickShow = false
           this.showFinalStats = true
+          
         },
 
         clickedNum(value) {
@@ -826,10 +832,17 @@
         showKeyboard() {
           this.Keyboard = true
         },
-        // async runnerUp(){
-        //   this.bayNum = ""
+       createRunnerAPI(runner){
+        console.log(runner)
+        console.log(runner.name)
+        const ip = this.$axios.$post('/api/expoRunner', {
+                name: runner.name,
+                chillinQueue: runner.chillinQueue,
+                runStart: runner.runStart,
+                shift: runner.shift
+          })
 
-        // },
+       },
         createRunner(){
           this.Keyboard = false
           console.log("heosl")
@@ -840,7 +853,22 @@
             }
            
           };
-          
+          const d = new Date()
+          console.log(d)
+          var hour = d.getHours()
+          console.log("Hours: ", hour)
+          console.log("day: ", d.getDate())
+          console.log("month: ", d.getMonth())
+          console.log("year: ", d.getFullYear())
+          var ampm= 'am'
+          if(hour >= 12){
+            ampm = 'pm'
+          }
+          else{
+            ampm = 'am'
+          }
+         
+            var curshift = String(d.getMonth()) + "-" + String(d.getDate()) + '-' + String(d.getFullYear()) + '-' + ampm
           var runner = {
             
             name: this.inputName,
@@ -852,70 +880,44 @@
             chillinQueue: numQueue,
             bayName: '',
             runStart: Date.now(),
-            break: false
+            break: false,
+            shift: curshift,
           }
             this.runners.push(runner)
             // console.log(this.runners)
+            var runnerAPI = {
+            name: this.inputName,
+            chillinQueue: numQueue,
+            runStart: Date.now(),
+            shift: curshift,
+            }
+            this.createRunnerAPI(runnerAPI)
+            
             this.inputName = ""
         },
-       
-        // accept(text) {
-        //   alert("Input text: " + text);
-        //   this.hide();
-        // },
-
-        // show(e) {
-        //   this.input = e.target;
-        //   this.layout = e.target.dataset.layout;
-
-        //   if (!this.visible)
-        //     this.visible = true
-        // },
-
-        // hide() {
-        //   this.visible = false;
-        // }
-    // fetching Data
-        // async grabBCData() {
-        //   const response = await this.$axios.$get('/api/readAllBusCarts');
-        //   this.bcData = response
-        //
-        //   const startingBay = '202'
-        //   this.changeBayParent(startingBay)
-        // }
+        async getAPIRunners(){
+          const response = await this.$axios.$get('/api/expoRunner');
+            this.runners = response
+            console.log(this.runners)
+        }
+  //       async getMessage() {
+  //   this.messageRxd = await this.socket.emitP('getMessage', { id: 'abc123' })
+  // },
+    
     
     },
-    //Lifecycle Hooks: beforeCreate, created, beforeMount, mounted, beforeUPdate, updated, beforeDestroy, destroyed
-    // mounted() {
-    //   console.log("MountedBaby");
-    //   this.grabBCData();
-    //
-    //   console.log("CalledThatData")
-    //
-    //
-    // }
+    mounted() {
+      window.setInterval(() => {
+        this.getAPIRunners()
+        console.log('Got the chillin runners')
+      }, 3000)
+    
+    
+    }
+      
+
     
     };
     
     </script>
     
-   
-    
-    
-    
-    
-    <!-- for axios stuff
-    
-    new Vue({
-      el: '#app',
-      data () {
-        return {
-          info: null
-        }
-      },
-      mounted () {
-        axios
-          .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-          .then(response => (this.info = response))
-      }
-    }) -->

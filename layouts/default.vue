@@ -115,6 +115,11 @@ export default {
           title: 'Maintenance View',
           to: '/maintenanceView'
         },
+        {
+          icon: 'mdi-apps',
+          title: 'Runner Leaderbaord',
+          to: '/runnersLeaderboardView'
+        }
       
         
       ],

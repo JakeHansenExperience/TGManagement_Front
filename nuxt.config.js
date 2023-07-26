@@ -43,7 +43,9 @@ export default {
     '@nuxtjs/proxy',
     '@nuxtjs/vuetify',
     
+    
   ],
+ 
   
   axios: {
     // baseURL: 'http://localhost:8000/'
@@ -83,6 +85,9 @@ export default {
           darkerRed: colors.red.darken4,
           darkerGreen: colors.green.darken4,
           lighterGrey: colors.grey.darken2,
+          gold: colors.yellow.darken1,
+          silver: colors.grey.darken1,
+          bronze: colors.brown.darken1,
 
         }
       }
