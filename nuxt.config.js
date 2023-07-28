@@ -49,11 +49,15 @@ export default {
   
   axios: {
     // baseURL: 'http://localhost:8000/'
-    proxy: true
-    
+    proxy: true,
+    headers: {
+      'Accept': 'application/json',
+      "Content-Type": 'application/json'
+    },
   },
   proxy: {
-    '/api/': {target: 'http://localhost:8000/', pathRewrite: {'^/api/': ''} }
+    // '/api/': {target: 'http://localhost:8000/', pathRewrite: {'^/api/': ''} }
+    '/api/': {target: 'http://0.0.0.0:8000/', pathRewrite: {'^/api/': ''} }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
