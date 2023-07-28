@@ -896,6 +896,7 @@
             this.inputName = ""
         },
         async getAPIRunners(){
+          console.log("HIslsl")
           const response = await this.$axios.$get('/api/expoRunner');
             this.runners = response
             console.log(this.runners)
