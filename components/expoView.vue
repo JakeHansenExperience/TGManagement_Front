@@ -785,6 +785,7 @@
                 const ip = this.$axios.$put('/api/updateSideworkFromExpo', {
                 name: this.chillinClickName,
                 shift: this.runners[runner].shift,
+                queueIndex: queueIndex,
            
           })
         } catch(error){
@@ -813,6 +814,13 @@
               currentIndex = runner
               name = this.chillinClickName
               shift = this.runners[runner].shift
+              this.finalTickets = this.runners[currentIndex].numTickets
+          this.finalStairs = this.runners[currentIndex].numFloors
+          this.finalAvg = (this.runners[currentIndex].totalTime / 1000)/this.runners[currentIndex].numTickets
+          if (isNaN(this.finalAvg)) {
+            this.finalAvg = 0
+  }
+          this.finalName = this.runners[currentIndex].name
             }
           }
           for (var runner in this.runners){
@@ -820,13 +828,7 @@
               this.runners[runner].chillinQueue -= 1
             }
           }
-          this.finalTickets = this.runners[currentIndex].numTickets
-          this.finalStairs = this.runners[currentIndex].numFloors
-          this.finalAvg = (this.runners[currentIndex].totalTime / 1000)/this.runners[currentIndex].numTickets
-          if (isNaN(this.finalAvg)) {
-            this.finalAvg = 0
-  }
-          this.finalName = this.runners[currentIndex].name
+
           try {
             console.log("I am now here right now")
                 const ip = this.$axios.$put('/api/updateRunnerDone', {
