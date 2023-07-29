@@ -502,7 +502,7 @@
         },
         async deleteRunners(){
           try {
-                const ip = this.$axios.$post('/api/deleteExpoRunners', {
+                const ip = this.$axios.$delete('/api/deleteExpoRunners', {
                 
                   
            
