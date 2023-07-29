@@ -847,7 +847,7 @@
           this.inputName += String(value)
           }
         },
-        showKeyboard() {g
+        showKeyboard() {
           this.Keyboard = true
         },
         createRunnerAPI(runner){
