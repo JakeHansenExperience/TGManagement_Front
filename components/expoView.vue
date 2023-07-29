@@ -786,11 +786,15 @@
         chillinEndshift(){
           var currentQueue = 0
           var currentIndex = 0
+          var name = ""
+          var shift = ""
           console.log("I am here right now")
           for (var runner in this.runners){
             if(this.runners[runner].name == this.chillinClickName){
               currentQueue = this.runners[runner].chillinQueue
               currentIndex = runner
+              name = this.chillinClickName
+              shift = this.runners[runner].shift
             }
           }
           for (var runner in this.runners){
@@ -808,8 +812,8 @@
           try {
             console.log("I am now here right now")
                 const ip = this.$axios.$put('/api/updateRunnerDone', {
-                name: this.runners[runner].name,
-                shift: this.runners[runner].shift,
+                name: name,
+                shift: shift,
                 finalTickets: this.finalTickets,
                 finalStairs: this.finalStairs,
                 finalAvg: this.finalAvg,
