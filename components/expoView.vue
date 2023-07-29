@@ -697,6 +697,7 @@
                 const ip = this.$axios.$put('/api/updateBackRunninFromExpo', {
                 name: this.SideworkName,
                 shift: this.runners[runner].shift,
+                queueIndex: numInQueue,
                 
            
           })
