@@ -27,6 +27,13 @@
               </v-btn>
             </v-col>
           </v-row>
+          <v-row>
+            <v-col>
+              <v-btn @click="deleteRunners">
+                Delete Runners
+              </v-btn>
+            </v-col>
+          </v-row>
         <v-row>
           <v-col>
             <v-btn @click="runnerUp3" class="mt-3 ml-4 darkIndigo">
@@ -493,6 +500,17 @@
           console.log(error)
         }
         },
+        async deleteRunners(){
+          try {
+                const ip = this.$axios.$post('/api/deleteExpoRunners', {
+                
+                  
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
+        }
         // async sendMessage(){
         //   console.log("Hello")
         //   console.log(this.connection)
