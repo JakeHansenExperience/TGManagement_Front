@@ -510,7 +510,7 @@
         } catch(error){
           console.log(error)
         }
-        }
+        },
         // async sendMessage(){
         //   console.log("Hello")
         //   console.log(this.connection)
