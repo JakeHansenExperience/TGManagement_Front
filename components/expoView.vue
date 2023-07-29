@@ -20,6 +20,13 @@
               </v-divider>
             </v-col>
           </v-row>
+          <v-row>
+            <v-col>
+              <v-btn @click="setUpLeaderboard">
+                set up leaderboard
+              </v-btn>
+            </v-col>
+          </v-row>
         <v-row>
           <v-col>
             <v-btn @click="runnerUp3" class="mt-3 ml-4 darkIndigo">
@@ -475,6 +482,17 @@
     
     
       methods: {
+        async setUpLeaderboard(){
+          try {
+                const ip = this.$axios.$post('/api/setUpLeaderboard', {
+                
+                  
+           
+          })
+        } catch(error){
+          console.log(error)
+        }
+        },
         // async sendMessage(){
         //   console.log("Hello")
         //   console.log(this.connection)
@@ -829,10 +847,10 @@
           this.inputName += String(value)
           }
         },
-        showKeyboard() {
+        showKeyboard() {g
           this.Keyboard = true
         },
-       createRunnerAPI(runner){
+        createRunnerAPI(runner){
         console.log(runner)
         console.log(runner.name)
         const ip = this.$axios.$post('/api/expoRunner', {
